@@ -5,11 +5,11 @@ import {jsonpOptions, TIMEOUT} from './config';
 
 // 获取热门搜索数据--ajax
 export const getSearchHotKeyword = () => {
-	return axios.get('https://so.m.jd.com/ware/hotKeyWord.action?_format_=json',{
+	return axios.get('http://www.imooc.com/api/search/hot',{
 		timeout:TIMEOUT
 	}).then(res=>{
 		// console.log(res);
-		res = JSON.parse(res.data.hotKeyWord);
+		res = res.data.hotKeyWord;
 		if(res && res.owner){
 			return res.owner;
 		}
@@ -31,7 +31,7 @@ export const getSearchHotKeyword = () => {
 
 // 获取搜索结果数据 -- jsonp
 export const getSearchResult = keyword => {
-	const url = 'https://suggest.taobao.com/sug';
+	const url = 'https://';
 	const params = {
 		q:keyword,
 		code:'utf-8',
